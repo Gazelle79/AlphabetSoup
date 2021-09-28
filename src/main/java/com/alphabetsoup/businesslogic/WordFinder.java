@@ -76,9 +76,9 @@ public class WordFinder {
     }
 
     //Start searching for words here.
-    public void SearchForWords(ArrayList<String> words)
+    public ArrayList<IWord> SearchForWords(ArrayList<String> words)
     {
-        ArrayList<IWord> results = new ArrayList<>();
+        ArrayList<IWord> results = new ArrayList<IWord>();
 
         for(int r = 0; r < rows; r++)
         {
@@ -86,81 +86,70 @@ public class WordFinder {
             {
                 for(String word : words)
                 {
-                    this.searchGrid(r, c, word);
+                    results.add(this.searchGrid(r, c, word));
                 }
             }
         }
 
-        //return results <-- Work toward this.
+        return results;
     }
 
-    private void searchGrid(int row, int column, String word)
+    private IWord searchGrid(int row, int column, String word)
     {
-        //Is this grid char the same as the first char of the word we want?
-        if(this.grid[row][column] == word.charAt(0))
-        {
-            //Yes: Look in all 8 directions.
-            //The index(es) of the next matching char tells us the direction we need to search in.
-
-            for(int direction=0; direction < 8; direction++)
-            {
-                int rowDirection = row + x[direction];
-                int columnDirection = column + y[direction];
-
-                //Don't go outside of grid bounds while looking in all 8 directions!
-                if(rowDirection <= row && rowDirection > 0 && columnDirection <= column && columnDirection > 0)
-                {
-                    rowDirection += x[direction];
-                    columnDirection += y[direction];
-
-                    if (grid[rowDirection][columnDirection] == word.charAt(1))
-                    {
-                        System.out.println("We got a next character!: " + word.charAt(1));
-                    }
-                }
-
-            }
-        }
-
+        IWord thisWord = this.searchSouthEast(word, row, column);
+        return thisWord;
 
     }
 
-    private void serachEast()
+    private void searchEast()
     {
         //Move forward in the grid.
     }
 
-    private void serachWest()
+    private void searchWest()
     {
         //Move backward in the grid.
     }
 
-    private void serachNorth()
+    private void searchNorth()
     {
         //Move up in the grid.
     }
 
-    private void serachSouth()
+    private void searchSouth()
     {
         //Move down in the grid.
     }
 
-    private void serachNorthEast()
+    private void searchNorthEast()
     {
         //Move NorthEast in the grid.
     }
 
-    private void serachNorthWest()
+    private void searchNorthWest()
     {
         //Move NorthWest in the grid.
     }
 
-    private void serachSouthEast()
+    private IWord searchSouthEast(String word, int row, int column)
     {
-        //Move SouthEast in the grid.
+        IWord wordToReturn = null;
+        StringBuilder wordBuilder = new StringBuilder();
+
+        for( int r = row, c = column; r >= 0 && c >=0; r++, c++ )
+        {
+            wordBuilder.append(grid[r][c]);
+
+            if(wordBuilder.length() == word.length())
+            {
+                wordToReturn = new Word(wordBuilder.toString(), row, column, r, c);
+            }
+        }
+
+        return wordToReturn;
     }
 
-    private void serachSouthWest()
+    private void searchSouthWest()
     {
         //Move SouthWest in the grid.
     }

@@ -1,5 +1,7 @@
 package com.alphabetsoup.businesslogic;
 
+import com.alphabetsoup.interfaces.IWord;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -9,7 +11,6 @@ public class AlphabetSoupMain
     public static void main(String[] args)
     {
         String currentPath = new File("").getAbsolutePath();
-
         String inputFileNameAndPath =  currentPath + "/InputFiles/WordFinderInput.txt";
 
         if(args.length > 1)
@@ -23,7 +24,7 @@ public class AlphabetSoupMain
         {
             ArrayList<String> wordsToSearch = null;
             wordsToSearch = finder.LoadPuzzle(inputFileNameAndPath);
-            finder.SearchForWords(wordsToSearch);
+            ArrayList<IWord> wordsFound = finder.SearchForWords(wordsToSearch);
 
         }
         catch(Exception e)
