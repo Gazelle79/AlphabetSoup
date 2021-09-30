@@ -12,11 +12,6 @@ public class WordFinder {
     private char grid[][] = null;
 
 
-
-    //search in all directions for a word.
-    private static int[] x = { -1, -1, -1, 0, 0, 1, 1, 1};
-    private static int[] y = { -1, 0, 1, -1, 1, -1, 0, 1 };
-
     public WordFinder()
     {
 
@@ -86,7 +81,11 @@ public class WordFinder {
             {
                 for(String word : words)
                 {
-                    results.add(this.searchGrid(r, c, word));
+                    IWord thisWord = this.searchGrid(r, c, word);
+                    if(thisWord != null)
+                    {
+                        results.add(thisWord);
+                    }
                 }
             }
         }
@@ -97,13 +96,28 @@ public class WordFinder {
     private IWord searchGrid(int row, int column, String word)
     {
         IWord thisWord = this.searchSouthEast(word, row, column);
+        //IWord thisWord = this.searchEast(word, row, column);
         return thisWord;
 
     }
 
-    private void searchEast()
+    private IWord searchEast(String word, int row, int column)
     {
-        //Move forward in the grid.
+        IWord wordToReturn = null;
+        StringBuilder wordBuilder = new StringBuilder();
+
+        for( int c = column; c >= 0 && c < columns; c++ )
+        {
+            wordBuilder.append(grid[row][c]);
+
+            if(wordBuilder.length() == word.length() && word.equals(wordBuilder.toString()) )
+            {
+                wordToReturn = new Word(wordBuilder.toString(), row, c, row, column);
+                break;
+            }
+        }
+
+        return wordToReturn;
     }
 
     private void searchWest()
@@ -136,13 +150,13 @@ public class WordFinder {
         IWord wordToReturn = null;
         StringBuilder wordBuilder = new StringBuilder();
 
-        for( int r = row, c = column; r >= 0 && c >=0; r++, c++ )
+        for( int r = row, c = column; r >= 0 && c >= 0 && r < rows && c < columns; r++, c++ )
         {
             wordBuilder.append(grid[r][c]);
-
-            if(wordBuilder.length() == word.length())
+            if (wordBuilder.length() == word.length() && word.equals(wordBuilder.toString()))
             {
                 wordToReturn = new Word(wordBuilder.toString(), row, column, r, c);
+                break;
             }
         }
 

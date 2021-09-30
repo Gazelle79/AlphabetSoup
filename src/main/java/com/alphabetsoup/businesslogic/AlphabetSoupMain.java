@@ -26,6 +26,14 @@ public class AlphabetSoupMain
             wordsToSearch = finder.LoadPuzzle(inputFileNameAndPath);
             ArrayList<IWord> wordsFound = finder.SearchForWords(wordsToSearch);
 
+            for(IWord thisWord: wordsFound)
+            {
+                System.out.println("Word found: "
+                        + thisWord.getWord() + " " + "[" + thisWord.getStartingRow() + ", " + thisWord.getStartingColumn() + "] "
+                        + "[" + thisWord.getEndingRow() + ", " + thisWord.getEndingColumn() + "] "
+                );
+            }
+
         }
         catch(Exception e)
         {
