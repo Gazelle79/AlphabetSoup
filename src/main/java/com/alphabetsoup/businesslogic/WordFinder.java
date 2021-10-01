@@ -4,6 +4,7 @@ import com.alphabetsoup.interfaces.IWord;
 
 import java.util.ArrayList;
 import java.io.*;
+import java.util.Collections;
 
 public class WordFinder {
     private String fileNameAndPath = "";
@@ -20,8 +21,6 @@ public class WordFinder {
     public ArrayList<String> LoadPuzzle(String filenameAndPath) throws IOException
     {
         ArrayList<String> wordList = new ArrayList<>();
-
-        this.grid = new char[0][0];
         this.fileNameAndPath = filenameAndPath;
 
         BufferedReader reader = null;
@@ -79,45 +78,31 @@ public class WordFinder {
         {
             for(int c = 0; c < columns; c++)
             {
-                for(String word : words)
-                {
-                    IWord thisWord = this.searchGrid(r, c, word);
-                    if(thisWord != null)
-                    {
-                        results.add(thisWord);
-                    }
-                }
+                results.addAll(this.searchEast(words, r, c));
+                results.addAll(this.searchSouthEast(words, r, c));
             }
         }
 
         return results;
     }
 
-    private IWord searchGrid(int row, int column, String word)
-    {
-        IWord thisWord = this.searchSouthEast(word, row, column);
-        //IWord thisWord = this.searchEast(word, row, column);
-        return thisWord;
 
-    }
-
-    private IWord searchEast(String word, int row, int column)
+    private ArrayList<IWord> searchEast(ArrayList<String> words, int row, int column)
     {
-        IWord wordToReturn = null;
+        ArrayList<IWord> wordsFound = new ArrayList<IWord>();
         StringBuilder wordBuilder = new StringBuilder();
 
         for( int c = column; c >= 0 && c < columns; c++ )
         {
             wordBuilder.append(grid[row][c]);
-
-            if(wordBuilder.length() == word.length() && word.equals(wordBuilder.toString()) )
+            if(Collections.binarySearch(words, wordBuilder.toString()) >= 0)
             {
-                wordToReturn = new Word(wordBuilder.toString(), row, c, row, column);
-                break;
+                IWord thisWord = new Word(wordBuilder.toString(), row, c, row, column);
+                wordsFound.add(thisWord);
             }
         }
 
-        return wordToReturn;
+        return wordsFound;
     }
 
     private void searchWest()
@@ -145,22 +130,23 @@ public class WordFinder {
         //Move NorthWest in the grid.
     }
 
-    private IWord searchSouthEast(String word, int row, int column)
+    private ArrayList<IWord> searchSouthEast(ArrayList<String> words, int row, int column)
     {
-        IWord wordToReturn = null;
+        ArrayList<IWord> wordsFound = new ArrayList<IWord>();
         StringBuilder wordBuilder = new StringBuilder();
 
         for( int r = row, c = column; r >= 0 && c >= 0 && r < rows && c < columns; r++, c++ )
         {
             wordBuilder.append(grid[r][c]);
-            if (wordBuilder.length() == word.length() && word.equals(wordBuilder.toString()))
+            if (Collections.binarySearch(words, wordBuilder.toString()) >= 0) //Index of the word is 0 or higher. It exists in the list.
             {
-                wordToReturn = new Word(wordBuilder.toString(), row, column, r, c);
-                break;
+                String newWord = wordBuilder.toString();
+                IWord thisWord = new Word(newWord, row, column, r, c);
+                wordsFound.add(thisWord);
             }
         }
 
-        return wordToReturn;
+        return wordsFound;
     }
 
     private void searchSouthWest()

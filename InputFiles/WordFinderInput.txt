@@ -5,3 +5,6 @@ J O L Z X
 C V G L N
 G O O D O
 HELLO
+GOOD
+BYE
+DOG
