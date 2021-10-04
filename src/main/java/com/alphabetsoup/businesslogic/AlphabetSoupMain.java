@@ -26,12 +26,19 @@ public class AlphabetSoupMain
             wordsToSearch = finder.LoadPuzzle(inputFileNameAndPath);
             ArrayList<IWord> wordsFound = finder.SearchForWords(wordsToSearch);
 
-            for(IWord thisWord: wordsFound)
+            if(wordsFound.size() > 0)
             {
-                System.out.println("Word found: "
-                        + thisWord.getWord() + " " + "[" + thisWord.getStartingRow() + ", " + thisWord.getStartingColumn() + "] "
-                        + "[" + thisWord.getEndingRow() + ", " + thisWord.getEndingColumn() + "] "
-                );
+                System.out.println("Words found: ");
+
+                for (IWord thisWord : wordsFound) {
+                    System.out.println(thisWord.getWord() + " " + "[" + thisWord.getStartingRow() + ", " + thisWord.getStartingColumn() + "] "
+                            + "[" + thisWord.getEndingRow() + ", " + thisWord.getEndingColumn() + "] "
+                    );
+                }
+            }
+            else
+            {
+                System.out.println("No words found.");
             }
 
         }

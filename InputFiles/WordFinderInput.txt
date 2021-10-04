@@ -1,10 +1,11 @@
 5x5
-H A S D F
+H D S D F
 D E Y B H
-J O L Z X
-C V G L N
+J O L O X
+C V G L B
 G O O D O
 HELLO
 GOOD
 BYE
 DOG
+BOYD

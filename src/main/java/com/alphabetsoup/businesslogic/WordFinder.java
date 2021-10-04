@@ -11,6 +11,7 @@ public class WordFinder {
     private int rows = 0;
     private int columns = 0;
     private char grid[][] = null;
+    private int minimumLetters = 3;
 
 
     public WordFinder()
@@ -78,11 +79,18 @@ public class WordFinder {
         {
             for(int c = 0; c < columns; c++)
             {
-                results.addAll(this.searchEast(words, r, c));
-                results.addAll(this.searchSouthEast(words, r, c));
+                if(columns - (minimumLetters-1) >= 0)
+                {
+                    results.addAll(this.searchEast(words, r, c));
+                    results.addAll(this.searchWest(words, r, c));
+                }
+                if(columns - (minimumLetters-1) >= 0  && rows - (minimumLetters-1) > 0  )
+                {
+                    results.addAll(this.searchSouthEast(words, r, c));
+                    results.addAll(this.searchNorthWest(words, r, c));
+                }
             }
         }
-
         return results;
     }
 
@@ -95,7 +103,7 @@ public class WordFinder {
         for( int c = column; c >= 0 && c < columns; c++ )
         {
             wordBuilder.append(grid[row][c]);
-            if(Collections.binarySearch(words, wordBuilder.toString()) >= 0)
+            if(words.contains(wordBuilder.toString()))
             {
                 IWord thisWord = new Word(wordBuilder.toString(), row, c, row, column);
                 wordsFound.add(thisWord);
@@ -105,9 +113,22 @@ public class WordFinder {
         return wordsFound;
     }
 
-    private void searchWest()
+    private ArrayList<IWord> searchWest(ArrayList<String> words, int row, int column)
     {
-        //Move backward in the grid.
+        ArrayList<IWord> wordsFound = new ArrayList<IWord>();
+        StringBuilder wordBuilder = new StringBuilder();
+
+        for( int c = column; c >= 0 && c < columns; c-- )
+        {
+            wordBuilder.append(grid[row][c]);
+            if(words.contains(wordBuilder.toString()))
+            {
+                IWord thisWord = new Word(wordBuilder.toString(), row, column, row, c);
+                wordsFound.add(thisWord);
+            }
+        }
+
+        return wordsFound;
     }
 
     private void searchNorth()
@@ -125,9 +146,22 @@ public class WordFinder {
         //Move NorthEast in the grid.
     }
 
-    private void searchNorthWest()
+    private ArrayList<IWord> searchNorthWest(ArrayList<String> words, int row, int column)
     {
-        //Move NorthWest in the grid.
+        ArrayList<IWord> wordsFound = new ArrayList<IWord>();
+        StringBuilder wordBuilder = new StringBuilder();
+
+        for( int r = row, c = column; r >= 0 && c >= 0 && r < rows && c < columns; r--, c-- )
+        {
+            wordBuilder.append(grid[r][c]);
+            if (words.contains(wordBuilder.toString())) //Index of the word is 0 or higher. It exists in the list.
+            {
+                IWord thisWord = new Word(wordBuilder.toString(), row, column, r, c);
+                wordsFound.add(thisWord);
+            }
+        }
+
+        return wordsFound;
     }
 
     private ArrayList<IWord> searchSouthEast(ArrayList<String> words, int row, int column)
@@ -138,10 +172,9 @@ public class WordFinder {
         for( int r = row, c = column; r >= 0 && c >= 0 && r < rows && c < columns; r++, c++ )
         {
             wordBuilder.append(grid[r][c]);
-            if (Collections.binarySearch(words, wordBuilder.toString()) >= 0) //Index of the word is 0 or higher. It exists in the list.
+            if (words.contains(wordBuilder.toString())) //Index of the word is 0 or higher. It exists in the list.
             {
-                String newWord = wordBuilder.toString();
-                IWord thisWord = new Word(newWord, row, column, r, c);
+                IWord thisWord = new Word(wordBuilder.toString(), row, column, r, c);
                 wordsFound.add(thisWord);
             }
         }
