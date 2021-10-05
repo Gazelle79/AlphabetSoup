@@ -79,15 +79,27 @@ public class WordFinder {
         {
             for(int c = 0; c < columns; c++)
             {
+                //If conditions are c, r - not rows, columns?
+
+                /*if(rows - (minimumLetters-1) >= 0)
+                {
+                    results.addAll(this.searchNorth(words, r, c));
+                    results.addAll(this.searchSouth(words, r, c));
+                }
                 if(columns - (minimumLetters-1) >= 0)
                 {
                     results.addAll(this.searchEast(words, r, c));
                     results.addAll(this.searchWest(words, r, c));
-                }
-                if(columns - (minimumLetters-1) >= 0  && rows - (minimumLetters-1) > 0  )
+                }*/
+                if(c - (minimumLetters-1) >= 0  && r - (minimumLetters-1) > 0  )
                 {
                     results.addAll(this.searchSouthEast(words, r, c));
                     results.addAll(this.searchNorthWest(words, r, c));
+                }
+                if(r - (minimumLetters-1) >= 0 && c + (minimumLetters-1) < columns)
+                {
+                    results.addAll(this.searchNorthEast(words, r, c));
+                    //results.addAll(this.searchSouthWest(words, r, c));
                 }
             }
         }
@@ -103,9 +115,10 @@ public class WordFinder {
         for( int c = column; c >= 0 && c < columns; c++ )
         {
             wordBuilder.append(grid[row][c]);
-            if(words.contains(wordBuilder.toString()))
+            String newWord = wordBuilder.toString();
+            if(words.contains(newWord))
             {
-                IWord thisWord = new Word(wordBuilder.toString(), row, c, row, column);
+                IWord thisWord = new Word(newWord, row, c, row, column);
                 wordsFound.add(thisWord);
             }
         }
@@ -131,19 +144,59 @@ public class WordFinder {
         return wordsFound;
     }
 
-    private void searchNorth()
+    private ArrayList<IWord> searchNorth(ArrayList<String> words, int row, int column)
     {
-        //Move up in the grid.
+        ArrayList<IWord> wordsFound = new ArrayList<IWord>();
+        StringBuilder wordBuilder = new StringBuilder();
+
+        for( int r = row; r >= 0 && r < rows; r-- )
+        {
+            wordBuilder.append(grid[r][column]);
+            if(words.contains(wordBuilder.toString()))
+            {
+                IWord thisWord = new Word(wordBuilder.toString(), row, column, r, column);
+                wordsFound.add(thisWord);
+            }
+        }
+
+        return wordsFound;
     }
 
-    private void searchSouth()
+    private ArrayList<IWord> searchSouth(ArrayList<String> words, int row, int column)
     {
-        //Move down in the grid.
+        ArrayList<IWord> wordsFound = new ArrayList<IWord>();
+        StringBuilder wordBuilder = new StringBuilder();
+
+        for( int r = row; r >= 0 && r < rows; r++)
+        {
+            wordBuilder.append(grid[r][column]);
+            if(words.contains(wordBuilder.toString()))
+            {
+                IWord thisWord = new Word(wordBuilder.toString(), row, column, r, column);
+                wordsFound.add(thisWord);
+            }
+        }
+
+        return wordsFound;
     }
 
-    private void searchNorthEast()
+    private ArrayList<IWord> searchNorthEast(ArrayList<String> words, int row, int column)
     {
-        //Move NorthEast in the grid.
+        ArrayList<IWord> wordsFound = new ArrayList<IWord>();
+        StringBuilder wordBuilder = new StringBuilder();
+
+        for( int r = row, c = column; r >= 0 && c >= 0 && r < rows && c < columns; r--, c++ )
+        {
+            wordBuilder.append(grid[r][c]);
+            String newWord = wordBuilder.toString();
+            if (words.contains(newWord)) //Index of the word is 0 or higher. It exists in the list.
+            {
+                IWord thisWord = new Word(newWord, row, column, r, c);
+                wordsFound.add(thisWord);
+            }
+        }
+
+        return wordsFound;
     }
 
     private ArrayList<IWord> searchNorthWest(ArrayList<String> words, int row, int column)
@@ -154,9 +207,10 @@ public class WordFinder {
         for( int r = row, c = column; r >= 0 && c >= 0 && r < rows && c < columns; r--, c-- )
         {
             wordBuilder.append(grid[r][c]);
-            if (words.contains(wordBuilder.toString())) //Index of the word is 0 or higher. It exists in the list.
+            String newWord = wordBuilder.toString();
+            if (words.contains(newWord)) //Index of the word is 0 or higher. It exists in the list.
             {
-                IWord thisWord = new Word(wordBuilder.toString(), row, column, r, c);
+                IWord thisWord = new Word(newWord, row, column, r, c);
                 wordsFound.add(thisWord);
             }
         }
@@ -172,9 +226,10 @@ public class WordFinder {
         for( int r = row, c = column; r >= 0 && c >= 0 && r < rows && c < columns; r++, c++ )
         {
             wordBuilder.append(grid[r][c]);
+            String newWord = wordBuilder.toString();
             if (words.contains(wordBuilder.toString())) //Index of the word is 0 or higher. It exists in the list.
             {
-                IWord thisWord = new Word(wordBuilder.toString(), row, column, r, c);
+                IWord thisWord = new Word(newWord, row, column, r, c);
                 wordsFound.add(thisWord);
             }
         }
@@ -182,9 +237,23 @@ public class WordFinder {
         return wordsFound;
     }
 
-    private void searchSouthWest()
+    private ArrayList<IWord> searchSouthWest(ArrayList<String> words, int row, int column)
     {
-        //Move SouthWest in the grid.
+        ArrayList<IWord> wordsFound = new ArrayList<IWord>();
+        StringBuilder wordBuilder = new StringBuilder();
+
+        for( int r = row, c = column; r >= 0 && c >= 0 && r < rows && c < columns; r++, c-- )
+        {
+            wordBuilder.append(grid[r][c]);
+            String newWord = wordBuilder.toString();
+            if (words.contains(newWord)) //Index of the word is 0 or higher. It exists in the list.
+            {
+                IWord thisWord = new Word(newWord, r, c, row, column);
+                wordsFound.add(thisWord);
+            }
+        }
+
+        return wordsFound;
     }
 
 
