@@ -11,7 +11,6 @@ public class WordFinder {
     private int rows = 0;
     private int columns = 0;
     private char grid[][] = null;
-    private int minimumLetters = 0;
 
 
     public WordFinder()
@@ -79,24 +78,22 @@ public class WordFinder {
         {
             for(int c = 0; c < columns; c++)
             {
-                //If conditions are c, r - not rows, columns?
-
-                if(r - (minimumLetters-1) >= 0)
+                if(r >= 0)
                 {
                     results.addAll(this.searchNorth(words, r, c));
                     results.addAll(this.searchSouth(words, r, c));
                 }
-                if(c - (minimumLetters-1) >= 0)
+                if(c >= 0)
                 {
                     results.addAll(this.searchEast(words, r, c));
                     results.addAll(this.searchWest(words, r, c));
                 }
-                if(c - (minimumLetters-1) >= 0  && r - (minimumLetters-1) > 0  )
+                if(c >= 0  && r > 0 )
                 {
                     results.addAll(this.searchSouthEast(words, r, c));
                     results.addAll(this.searchNorthWest(words, r, c));
                 }
-                if(r - (minimumLetters-1) >= 0 && c + (minimumLetters-1) < columns)
+                if(r >= 0 && c < columns)
                 {
                     results.addAll(this.searchNorthEast(words, r, c));
                     results.addAll(this.searchSouthWest(words, r, c));
