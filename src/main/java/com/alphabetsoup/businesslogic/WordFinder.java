@@ -11,7 +11,7 @@ public class WordFinder {
     private int rows = 0;
     private int columns = 0;
     private char grid[][] = null;
-    private int minimumLetters = 3;
+    private int minimumLetters = 0;
 
 
     public WordFinder()
@@ -81,16 +81,16 @@ public class WordFinder {
             {
                 //If conditions are c, r - not rows, columns?
 
-                /*if(rows - (minimumLetters-1) >= 0)
+                if(r - (minimumLetters-1) >= 0)
                 {
                     results.addAll(this.searchNorth(words, r, c));
                     results.addAll(this.searchSouth(words, r, c));
                 }
-                if(columns - (minimumLetters-1) >= 0)
+                if(c - (minimumLetters-1) >= 0)
                 {
                     results.addAll(this.searchEast(words, r, c));
                     results.addAll(this.searchWest(words, r, c));
-                }*/
+                }
                 if(c - (minimumLetters-1) >= 0  && r - (minimumLetters-1) > 0  )
                 {
                     results.addAll(this.searchSouthEast(words, r, c));
@@ -99,7 +99,7 @@ public class WordFinder {
                 if(r - (minimumLetters-1) >= 0 && c + (minimumLetters-1) < columns)
                 {
                     results.addAll(this.searchNorthEast(words, r, c));
-                    //results.addAll(this.searchSouthWest(words, r, c));
+                    results.addAll(this.searchSouthWest(words, r, c));
                 }
             }
         }
@@ -248,7 +248,7 @@ public class WordFinder {
             String newWord = wordBuilder.toString();
             if (words.contains(newWord)) //Index of the word is 0 or higher. It exists in the list.
             {
-                IWord thisWord = new Word(newWord, r, c, row, column);
+                IWord thisWord = new Word(newWord, row, column, r, c);
                 wordsFound.add(thisWord);
             }
         }
