@@ -18,7 +18,7 @@ public class AlphabetSoupMain
             inputFileNameAndPath =  args[0];
         }
 
-        //Load grid dimensions, grid letters, and grid words.
+        //Load grid dimensions, grid letters, and words.
         WordFinder finder = new WordFinder();
         try
         {
