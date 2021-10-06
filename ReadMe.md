@@ -42,22 +42,22 @@ OPTIONAL
 TO START
 --------
  - Open a command prompt in Linux or Windows.
- - Change directories to the location of Pricer.
+ - Change directories to the location of Alphabet Soup.
  - Compile the application.
  - Execute the application.
 
 ### COMPILING Alphabet Soup:
-`` javac src/main/com/pricer/businesslogic/AlphabetSoupMain.java ``
+`` javac src/main/com/alphabetsoup/businesslogic/AlphabetSoupMain.java ``
 
 
 ### EXECUTING AlphabetSoup:
 #### without any arguments:
- - ``java src/main/com/pricer/businesslogic/AlphabetSoupMain ``
+ - ``java src/main/com/alphabetsoup/businesslogic/AlphabetSoupMain ``
 
 The default value for ``fileNameAndPath`` is used if no argument is provided.
 
 
 #### with a filenameAndPath argument:
- - ``java src/main/com/pricer/businesslogic/PricerMain /path/To/Your/File.txt ``
+ - ``java src/main/com/alphabetsoup/businesslogic/AlphabetSoupMain /path/To/Your/File.txt ``
 
 
