@@ -31,7 +31,7 @@ A user can optionally specify their own input file path.
 REQUIREMENTS
 ------------
 - [x] Java 14 or higher 
-(https://www.oracle.com/technetwork/java/javase/downloads/jdk14-downloads-2133151.html)
+(https://www.oracle.com/java/technologies/javase/jdk14-archive-downloads.html)
 
 
 OPTIONAL
