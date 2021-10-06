@@ -16,7 +16,7 @@ For all words found, their start & end coordinates are printed to the screen.
 ####  Input Parameters: 
  -  ``fileNameAndPath``  
 
-    - STRING. Path to the input file containing the crossword puzzle, puzzle dimensions, and words to find. [Default value: ***]  
+    - STRING. Path to the input file containing the crossword puzzle, puzzle dimensions, and words to find. [Default value: "./InputFiles/WordFinderInput.txt"]  
 
 ####  Input:
 
@@ -31,7 +31,7 @@ A user can optionally specify their own input file path.
 REQUIREMENTS
 ------------
 - [x] Java 14 or higher 
-(https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+(https://www.oracle.com/technetwork/java/javase/downloads/jdk14-downloads-2133151.html)
 
 
 OPTIONAL
