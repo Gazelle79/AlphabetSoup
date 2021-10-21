@@ -35,8 +35,9 @@ public class WordFinder {
 
         //Load puzzle dimensions.
         String thisLine = reader.readLine();
-        this.rows = Integer.parseInt(thisLine.split("x")[0]);
-        this.columns = Integer.parseInt(thisLine.split("x")[1]);
+        String[] dimensions = thisLine.split("x");
+        this.rows = Integer.parseInt(dimensions[0]);
+        this.columns = Integer.parseInt(dimensions[1]);
         this.grid = new char[rows][columns];
 
         int rowNumber = 0;
@@ -96,7 +97,7 @@ public class WordFinder {
                     results.addAll(this.searchEast(words, r, c));
                     results.addAll(this.searchWest(words, r, c));
                 }
-                if(c >= 0  && r > 0 )
+                if(c >= 0  && r >= 0 )
                 {
                     results.addAll(this.searchSouthEast(words, r, c));
                     results.addAll(this.searchNorthWest(words, r, c));
