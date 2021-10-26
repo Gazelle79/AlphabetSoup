@@ -68,7 +68,7 @@ public class WordFinder {
             wordList.add(thisWord);
         }
 
-        System.out.println("Grid, dimensions, & words loaded.");
+        //System.out.println("Grid, dimensions, & words loaded.");
         reader.close();
 
         return wordList;
@@ -152,9 +152,10 @@ public class WordFinder {
         for( int c = column; c >= 0 && c < columns; c-- )
         {
             wordBuilder.append(grid[row][c]);
-            if(words.contains(wordBuilder.toString()))
+            String newWord = wordBuilder.toString();
+            if(words.contains(newWord))
             {
-                IWord thisWord = new Word(wordBuilder.toString(), row, column, row, c);
+                IWord thisWord = new Word(newWord, row, column, row, c);
                 wordsFound.add(thisWord);
             }
         }
@@ -177,9 +178,10 @@ public class WordFinder {
         for( int r = row; r >= 0 && r < rows; r-- )
         {
             wordBuilder.append(grid[r][column]);
-            if(words.contains(wordBuilder.toString()))
+            String newWord = wordBuilder.toString();
+            if(words.contains(newWord))
             {
-                IWord thisWord = new Word(wordBuilder.toString(), row, column, r, column);
+                IWord thisWord = new Word(newWord, row, column, r, column);
                 wordsFound.add(thisWord);
             }
         }
@@ -202,9 +204,10 @@ public class WordFinder {
         for( int r = row; r >= 0 && r < rows; r++)
         {
             wordBuilder.append(grid[r][column]);
-            if(words.contains(wordBuilder.toString()))
+            String newWord = wordBuilder.toString();
+            if(words.contains(newWord))
             {
-                IWord thisWord = new Word(wordBuilder.toString(), row, column, r, column);
+                IWord thisWord = new Word(newWord, row, column, r, column);
                 wordsFound.add(thisWord);
             }
         }
@@ -280,7 +283,7 @@ public class WordFinder {
         {
             wordBuilder.append(grid[r][c]);
             String newWord = wordBuilder.toString();
-            if (words.contains(wordBuilder.toString())) //Index of the word is 0 or higher. It exists in the list.
+            if (words.contains(newWord)) //Index of the word is 0 or higher. It exists in the list.
             {
                 IWord thisWord = new Word(newWord, row, column, r, c);
                 wordsFound.add(thisWord);

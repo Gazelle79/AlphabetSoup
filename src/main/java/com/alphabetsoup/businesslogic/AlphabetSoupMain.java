@@ -28,11 +28,11 @@ public class AlphabetSoupMain
 
             if(wordsFound.size() > 0)
             {
-                System.out.println("Words found: ");
+                //System.out.println("Words found: ");
 
                 for (IWord thisWord : wordsFound) {
-                    System.out.println(thisWord.getWord() + " " + "[" + thisWord.getStartingRow() + ", " + thisWord.getStartingColumn() + "] "
-                            + "[" + thisWord.getEndingRow() + ", " + thisWord.getEndingColumn() + "] "
+                    System.out.println(thisWord.getWord() + " " + thisWord.getStartingRow() + ":" + thisWord.getStartingColumn()
+                            + " " + thisWord.getEndingRow() + ":" + thisWord.getEndingColumn()
                     );
                 }
             }

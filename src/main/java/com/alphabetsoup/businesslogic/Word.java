@@ -21,7 +21,7 @@ public class Word implements IWord {
 
     @Override
     /**
-    The starting X coordinate of this word.
+    The starting X coordinate of a word.
     */
     public int getStartingRow()
     {
@@ -30,7 +30,7 @@ public class Word implements IWord {
 
     @Override
     /**
-     The starting Y coordinate of this word.
+     The starting Y coordinate of a word.
      */
     public int getStartingColumn()
     {
@@ -39,7 +39,7 @@ public class Word implements IWord {
 
     @Override
     /**
-     The ending X coordinate of this word.
+     The ending X coordinate of a word.
      */
     public int getEndingRow()
     {
@@ -48,7 +48,7 @@ public class Word implements IWord {
 
     @Override
     /**
-     The ending Y coordinate of this word.
+     The ending Y coordinate of a word.
      */
     public int getEndingColumn()
     {
@@ -60,10 +60,10 @@ public class Word implements IWord {
      Constructor.
      Returns: A word, with its' start & end coordinates, on each axis.
      @param word - A word hidden in the puzzle.
-     @param startingRow - The starting X coordinate of this word.
-     @param startingColumn - The starting Y coordinate of this word.
-     @param endingRow - The ending X coordinate of this word.
-     @param endingColumn - The ending Y coordinate of this word.
+     @param startingRow - The starting X coordinate of a word.
+     @param startingColumn - The starting Y coordinate of a word.
+     @param endingRow - The ending X coordinate of a word.
+     @param endingColumn - The ending Y coordinate of a word.
      */
     public Word(String word, int startingRow, int startingColumn, int endingRow, int endingColumn)
     {
