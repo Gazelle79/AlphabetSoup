@@ -24,7 +24,7 @@ Data is read in from:
 
 - ``WordFinderInput.txt``
 
-  Location:``.../AlphabetSoup/InputFiles/WordFInderInput.txt``
+  Location:``.../AlphabetSoup/InputFiles/WordFinderInput.txt``
 
 A user can optionally specify their own input file path.
 
@@ -47,17 +47,17 @@ TO START
  - Execute the application.
 
 ### COMPILING Alphabet Soup:
-`` javac src/main/com/alphabetsoup/businesslogic/AlphabetSoupMain.java ``
+`` mvn clean compile ``
 
 
 ### EXECUTING AlphabetSoup:
 #### without any arguments:
- - ``java src/main/com/alphabetsoup/businesslogic/AlphabetSoupMain ``
+ - ``mvn exec:java ``
 
 The default value for ``fileNameAndPath`` is used if no argument is provided.
 
 
-#### with a filenameAndPath argument:
- - ``java src/main/com/alphabetsoup/businesslogic/AlphabetSoupMain /path/To/Your/File.txt ``
+#### with an argument (a path to an input file):
+ - ``mvn exec:java -Dexec.args="../path/To/Your/File.txt" ``
 
 

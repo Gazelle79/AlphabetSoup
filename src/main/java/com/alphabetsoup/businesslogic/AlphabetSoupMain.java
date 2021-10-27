@@ -13,10 +13,11 @@ public class AlphabetSoupMain
         String currentPath = new File("").getAbsolutePath();
         String inputFileNameAndPath =  currentPath + "/InputFiles/WordFinderInput.txt";
 
-        if(args.length > 1)
+        if(args.length >= 1)
         {
             inputFileNameAndPath =  args[0];
         }
+        //else, no args provided. inputFileNameAndPath is already set.
 
         //Load grid dimensions, grid letters, and words.
         WordFinder finder = new WordFinder();
