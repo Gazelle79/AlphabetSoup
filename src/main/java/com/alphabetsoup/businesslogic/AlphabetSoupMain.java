@@ -30,11 +30,14 @@ public class AlphabetSoupMain
             {
                 //System.out.println("Words found: ");
 
-                for (IWord thisWord : wordsFound) {
+                System.out.println("\n");
+                for (IWord thisWord : wordsFound)
+                {
                     System.out.println(thisWord.getWord() + " " + thisWord.getStartingRow() + ":" + thisWord.getStartingColumn()
                             + " " + thisWord.getEndingRow() + ":" + thisWord.getEndingColumn()
                     );
                 }
+                System.out.println("\n");
             }
             else
             {
