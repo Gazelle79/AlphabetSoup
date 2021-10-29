@@ -1,4 +1,4 @@
-# ALPHABET SOUP  :camel:
+# ALPHABET SOUP  :spaghetti:
 
 
 SUMMARY
@@ -9,7 +9,11 @@ SUMMARY
  - The puzzle itself
  - A list of words to search for
 
-For all words found, their start & end coordinates are printed as output. 
+For all words found, the following is printed as output:
+
+ - The word
+ - Starting X & Y coordinates of that word
+ - Ending X & Y coordinates of that word
 
 **Alphabet Soup doesn't have a GUI. It's run from a command prompt.**
 
@@ -22,16 +26,18 @@ For all words found, their start & end coordinates are printed as output.
 
 Data is read in from:
 
-- ``WordFinderInput.txt``
+- ``.../AlphabetSoup/InputFiles/WordFinderInput.txt``
 
-  Location:``.../AlphabetSoup/InputFiles/WordFinderInput.txt``
+- ``.../AlphabetSoup/InputFiles/WordFinderInput_2.txt`` (For unit tests only.)
 
-OPTIONAL: A user can specify their own input file path.
+#### OPTIONAL: A user can specify their own input file path.
 
 REQUIREMENTS
 ------------
 - [x] Java 14 or higher 
 (https://www.oracle.com/java/technologies/javase/jdk14-archive-downloads.html)
+- [x] Apache Maven 3.6.2 or higher
+(https://maven.apache.org/download.cgi)
 
 
 OPTIONAL
