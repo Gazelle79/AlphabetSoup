@@ -1,5 +1,6 @@
 # ALPHABET SOUP  :spaghetti:
 
+<p>
 
 SUMMARY
 -------
@@ -31,6 +32,9 @@ Data is read in from:
 - ``.../AlphabetSoup/InputFiles/WordFinderInput_2.txt`` (For unit tests only.)
 
 #### OPTIONAL: A user can specify their own input file path.
+</p>
+
+<p>
 
 REQUIREMENTS
 ------------
@@ -39,11 +43,13 @@ REQUIREMENTS
 - [x] Apache Maven 3.6.2 or higher
 (https://maven.apache.org/download.cgi)
 
-
 OPTIONAL
 --------
 - [x] JUnit 4.12 or higher
- 
+</p>
+
+
+<p>
 
 TO START
 --------
@@ -66,4 +72,4 @@ The default value for ``fileNameAndPath`` is used if no argument is provided.
 #### with an argument (a path to an input file):
  - ``mvn exec:java -Dexec.args="../path/To/Your/File.txt" ``
 
-
+</p>
