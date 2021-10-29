@@ -55,8 +55,13 @@ TO START
 --------
  - Open a command prompt in Linux or Windows.
  - Change directories to the location of Alphabet Soup.
+ - Unit test the application. Make sure all unit tests pass.
  - Compile the application.
  - Execute the application.
+
+### TESTING Alphabet Soup:
+`` mvn clean test ``
+
 
 ### COMPILING Alphabet Soup:
 `` mvn clean compile ``
@@ -66,7 +71,7 @@ TO START
 #### without any arguments:
  - ``mvn exec:java ``
 
-The default value for ``fileNameAndPath`` is used if no argument is provided.
+ The default value for ``fileNameAndPath`` is used if no argument is provided.
 
 
 #### with an argument (a path to an input file):
