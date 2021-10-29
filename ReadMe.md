@@ -3,13 +3,13 @@
 
 SUMMARY
 -------
-**A java application that finds all words in a crossword puzzle.** It reads the following from a file: , , and a list of words to find, from a file. Please see the included problem statement for specific details.
+**A java application that finds all words in a crossword puzzle.** It reads the following from a file:
 
  - Puzzle dimensions 
  - The puzzle itself
  - A list of words to search for
 
-For all words found, their start & end coordinates are printed to the screen. 
+For all words found, their start & end coordinates are printed as output. 
 
 **Alphabet Soup doesn't have a GUI. It's run from a command prompt.**
 
@@ -26,7 +26,7 @@ Data is read in from:
 
   Location:``.../AlphabetSoup/InputFiles/WordFinderInput.txt``
 
-A user can optionally specify their own input file path.
+OPTIONAL: A user can specify their own input file path.
 
 REQUIREMENTS
 ------------

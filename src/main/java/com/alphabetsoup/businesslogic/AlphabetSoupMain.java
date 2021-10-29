@@ -24,8 +24,8 @@ public class AlphabetSoupMain
         try
         {
             ArrayList<String> wordsToSearch = null;
-            wordsToSearch = finder.LoadPuzzle(inputFileNameAndPath);
-            ArrayList<IWord> wordsFound = finder.SearchForWords(wordsToSearch);
+            wordsToSearch = finder.loadPuzzle(inputFileNameAndPath);
+            ArrayList<IWord> wordsFound = finder.searchForWords(wordsToSearch);
 
             if(wordsFound.size() > 0)
             {

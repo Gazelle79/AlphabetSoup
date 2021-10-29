@@ -22,7 +22,7 @@ public class WordFinder {
      Returns: List of words hidden in the puzzle.
      @param filenameAndPath - path to a text file containing the puzzle.
      */
-    public ArrayList<String> LoadPuzzle(String filenameAndPath) throws IOException
+    public ArrayList<String> loadPuzzle(String filenameAndPath) throws IOException
     {
         ArrayList<String> wordList = new ArrayList<>();
         this.fileNameAndPath = filenameAndPath;
@@ -79,7 +79,7 @@ public class WordFinder {
      Returns: ArrayList of all words found from searching in all directions.
      @param words - ArrayList of all words hidden in the puzzle.
      */
-    public ArrayList<IWord> SearchForWords(ArrayList<String> words)
+    public ArrayList<IWord> searchForWords(ArrayList<String> words)
     {
         ArrayList<IWord> results = new ArrayList<IWord>();
 
