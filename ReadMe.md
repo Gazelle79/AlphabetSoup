@@ -45,7 +45,7 @@ REQUIREMENTS
 
 OPTIONAL
 --------
-- [x] JUnit 4.12 or higher
+- [x] JUnit 5.8.1 or higher (Automatically downloaded by Maven, if you don't already have it.)
 </p>
 
 
