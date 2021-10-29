@@ -3,8 +3,8 @@ package com.alphabetsoup.unittests;
 import com.alphabetsoup.interfaces.IWord;
 import com.alphabetsoup.businesslogic.Word;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class WordTest
 {

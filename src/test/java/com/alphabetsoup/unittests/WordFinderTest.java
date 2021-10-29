@@ -1,13 +1,12 @@
 package com.alphabetsoup.unittests;
 
 import com.alphabetsoup.businesslogic.WordFinder;
-
 import com.alphabetsoup.interfaces.IWord;
-import org.junit.Test;
-import static org.junit.Assert.*;
-
 import java.io.*;
 import java.util.*;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 
 public class WordFinderTest
