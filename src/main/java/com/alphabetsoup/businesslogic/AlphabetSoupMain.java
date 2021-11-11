@@ -11,7 +11,7 @@ public class AlphabetSoupMain
     public static void main(String[] args)
     {
         String currentPath = new File("").getAbsolutePath();
-        String inputFileNameAndPath =  currentPath + "/InputFiles/WordFinderInput.txt";
+        String inputFileNameAndPath =  currentPath + "/InputFiles/main/WordFinder.txt";
 
         if(args.length >= 1)
         {

@@ -1,0 +1,12 @@
+5x5
+H D B X T
+F E U U X
+C O L M G
+I R R L B
+Q T Y T O
+HELLO
+DUMB
+BUG
+FORT
+CRY
+IT

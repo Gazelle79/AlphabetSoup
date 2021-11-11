@@ -1,0 +1,11 @@
+5x5
+H P F X S 
+O L I C P
+U A R A I
+S N E R N 
+E E T T Q
+HOUSE
+PLANE
+FIRE
+CART
+SPIN
