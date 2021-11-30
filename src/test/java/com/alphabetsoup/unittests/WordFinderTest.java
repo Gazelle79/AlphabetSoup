@@ -66,6 +66,7 @@ public class WordFinderTest
         try
         {
             this.wordList = thisWordFinder.loadPuzzle(inputFileNameAndPath);
+            Collections.sort(this.wordList);
         }
         catch(IOException e)
         {
@@ -73,10 +74,15 @@ public class WordFinderTest
         }
 
         ArrayList<IWord> foundWordsList = thisWordFinder.searchForWords(this.wordList);
-        for(IWord thisWord : foundWordsList)
+        ArrayList<String> foundStringsList = new ArrayList<>();
+
+        for(IWord foundString : foundWordsList)
         {
-            assertTrue(foundWordsList.contains(thisWord));
+            foundStringsList.add(foundString.getWord());
         }
+        Collections.sort(foundStringsList);
+
+        assertTrue(this.wordList.equals(foundStringsList));
     }
 
     @Test
@@ -86,6 +92,7 @@ public class WordFinderTest
         try
         {
             this.wordList = thisWordFinder.loadPuzzle(inputFileNameNorth);
+            Collections.sort(this.wordList);
         }
         catch(IOException e)
         {
@@ -93,10 +100,16 @@ public class WordFinderTest
         }
 
         ArrayList<IWord> foundWordsList = thisWordFinder.searchForWords(this.wordList);
-        for(IWord thisWord : foundWordsList)
+        ArrayList<String> foundStringsList = new ArrayList<>();
+
+        for(IWord foundString : foundWordsList)
         {
-            assertTrue(this.wordList.contains(thisWord.getWord()));
+            foundStringsList.add(foundString.getWord());
         }
+        Collections.sort(foundStringsList);
+
+        assertTrue(this.wordList.equals(foundStringsList));
+
     }
 
     @Test
@@ -106,6 +119,7 @@ public class WordFinderTest
         try
         {
             this.wordList = thisWordFinder.loadPuzzle(inputFileNameSouth);
+            Collections.sort(this.wordList);
         }
         catch(IOException e)
         {
@@ -113,10 +127,15 @@ public class WordFinderTest
         }
 
         ArrayList<IWord> foundWordsList = thisWordFinder.searchForWords(this.wordList);
-        for(IWord thisWord : foundWordsList)
+        ArrayList<String> foundStringsList = new ArrayList<>();
+
+        for(IWord foundString : foundWordsList)
         {
-            assertTrue(this.wordList.contains(thisWord.getWord()));
+            foundStringsList.add(foundString.getWord());
         }
+        Collections.sort(foundStringsList);
+
+        assertTrue(this.wordList.equals(foundStringsList));
     }
 
     @Test
@@ -126,6 +145,7 @@ public class WordFinderTest
         try
         {
             this.wordList = thisWordFinder.loadPuzzle(inputFileNameEast);
+            Collections.sort(this.wordList);
         }
         catch(IOException e)
         {
@@ -133,10 +153,15 @@ public class WordFinderTest
         }
 
         ArrayList<IWord> foundWordsList = thisWordFinder.searchForWords(this.wordList);
-        for(IWord thisWord : foundWordsList)
+        ArrayList<String> foundStringsList = new ArrayList<>();
+
+        for(IWord foundString : foundWordsList)
         {
-            assertTrue(this.wordList.contains(thisWord.getWord()));
+            foundStringsList.add(foundString.getWord());
         }
+        Collections.sort(foundStringsList);
+
+        assertTrue(this.wordList.equals(foundStringsList));
     }
 
     @Test
@@ -146,6 +171,7 @@ public class WordFinderTest
         try
         {
             this.wordList = thisWordFinder.loadPuzzle(inputFileNameWest);
+            Collections.sort(this.wordList);
         }
         catch(IOException e)
         {
@@ -153,10 +179,15 @@ public class WordFinderTest
         }
 
         ArrayList<IWord> foundWordsList = thisWordFinder.searchForWords(this.wordList);
-        for(IWord thisWord : foundWordsList)
+        ArrayList<String> foundStringsList = new ArrayList<>();
+
+        for(IWord foundString : foundWordsList)
         {
-            assertTrue(this.wordList.contains(thisWord.getWord()));
+            foundStringsList.add(foundString.getWord());
         }
+        Collections.sort(foundStringsList);
+
+        assertTrue(this.wordList.equals(foundStringsList));
     }
 
     @Test
@@ -166,6 +197,7 @@ public class WordFinderTest
         try
         {
             this.wordList = thisWordFinder.loadPuzzle(inputFileNameNortheast);
+            Collections.sort(this.wordList);
         }
         catch(IOException e)
         {
@@ -173,10 +205,15 @@ public class WordFinderTest
         }
 
         ArrayList<IWord> foundWordsList = thisWordFinder.searchForWords(this.wordList);
-        for(IWord thisWord : foundWordsList)
+        ArrayList<String> foundStringsList = new ArrayList<>();
+
+        for(IWord foundString : foundWordsList)
         {
-            assertTrue(this.wordList.contains(thisWord.getWord()));
+            foundStringsList.add(foundString.getWord());
         }
+        Collections.sort(foundStringsList);
+
+        assertTrue(this.wordList.equals(foundStringsList));
     }
 
     @Test
@@ -186,6 +223,7 @@ public class WordFinderTest
         try
         {
             this.wordList = thisWordFinder.loadPuzzle(inputFileNameSoutheast);
+            Collections.sort(this.wordList);
         }
         catch(IOException e)
         {
@@ -193,10 +231,15 @@ public class WordFinderTest
         }
 
         ArrayList<IWord> foundWordsList = thisWordFinder.searchForWords(this.wordList);
-        for(IWord thisWord : foundWordsList)
+        ArrayList<String> foundStringsList = new ArrayList<>();
+
+        for(IWord foundString : foundWordsList)
         {
-            assertTrue(this.wordList.contains(thisWord.getWord()));
+            foundStringsList.add(foundString.getWord());
         }
+        Collections.sort(foundStringsList);
+
+        assertTrue(this.wordList.equals(foundStringsList));
     }
 
     @Test
@@ -206,6 +249,7 @@ public class WordFinderTest
         try
         {
             this.wordList = thisWordFinder.loadPuzzle(inputFileNameNorthwest);
+            Collections.sort(this.wordList);
         }
         catch(IOException e)
         {
@@ -213,10 +257,16 @@ public class WordFinderTest
         }
 
         ArrayList<IWord> foundWordsList = thisWordFinder.searchForWords(this.wordList);
-        for(IWord thisWord : foundWordsList)
+        ArrayList<String> foundStringsList = new ArrayList<>();
+
+        for(IWord foundString : foundWordsList)
         {
-            assertTrue(this.wordList.contains(thisWord.getWord()));
+            foundStringsList.add(foundString.getWord());
         }
+        Collections.sort(foundStringsList);
+
+        assertTrue(this.wordList.equals(foundStringsList));
+
     }
 
 
@@ -227,6 +277,7 @@ public class WordFinderTest
         try
         {
             this.wordList = thisWordFinder.loadPuzzle(inputFileNameSouthwest);
+            Collections.sort(this.wordList);
         }
         catch(IOException e)
         {
@@ -234,10 +285,15 @@ public class WordFinderTest
         }
 
         ArrayList<IWord> foundWordsList = thisWordFinder.searchForWords(this.wordList);
-        for(IWord thisWord : foundWordsList)
+        ArrayList<String> foundStringsList = new ArrayList<>();
+
+        for(IWord foundString : foundWordsList)
         {
-            assertTrue(this.wordList.contains(thisWord.getWord()));
+            foundStringsList.add(foundString.getWord());
         }
+        Collections.sort(foundStringsList);
+
+        assertTrue(this.wordList.equals(foundStringsList));
     }
 
 }
