@@ -19,8 +19,8 @@ public class WordFinder {
 
     /**
      Reads the contents of the puzzle's words, dimensions, and the puzzle itself.
-     Returns: List of words hidden in the puzzle.
-     @param filenameAndPath - path to a text file containing the puzzle.
+     @return List of words hidden in the puzzle.
+     @param filenameAndPath: path to a text file containing the puzzle.
      */
     public ArrayList<String> loadPuzzle(String filenameAndPath) throws IOException
     {
@@ -76,8 +76,8 @@ public class WordFinder {
 
     /**
      Start searching for all words in the puzzle here.
-     Returns: ArrayList of all words found from searching in all directions.
-     @param words - ArrayList of all words hidden in the puzzle.
+     @return ArrayList of all words found from searching in all directions.
+     @param words: ArrayList of all words hidden in the puzzle.
      */
     public ArrayList<IWord> searchForWords(ArrayList<String> words)
     {
@@ -113,10 +113,11 @@ public class WordFinder {
     }
 
     /**
-     Search for words, East. Returns: ArrayList of all words found.
-     @param words - ArrayList of all words hidden in the puzzle.
-     @param row - the starting row to search on.
-     @param column - the starting column to search on.
+     Search for words, East.
+     @return  ArrayList of all words found.
+     @param  words: ArrayList of all words hidden in the puzzle.
+     @param  row: the starting row to search on.
+     @param  column: the starting column to search on.
      */
     private ArrayList<IWord> searchEast(ArrayList<String> words, int row, int column)
     {
@@ -139,10 +140,10 @@ public class WordFinder {
 
     /**
      Search for words, West.
-     Returns: ArrayList of all words found.
-     @param words - ArrayList of all words hidden in the puzzle.
-     @param row - the starting row to search on.
-     @param column - the starting column to search on.
+     @return  ArrayList of all words found.
+     @param words: ArrayList of all words hidden in the puzzle.
+     @param row: the starting row to search on.
+     @param column: the starting column to search on.
      */
     private ArrayList<IWord> searchWest(ArrayList<String> words, int row, int column)
     {
@@ -165,10 +166,10 @@ public class WordFinder {
 
     /**
      Search for words, North.
-     Returns: ArrayList of all words found.
-     @param words - ArrayList of all words hidden in the puzzle.
-     @param row - the starting row to search on.
-     @param column - the starting column to search on.
+     @return  ArrayList of all words found.
+     @param words:  ArrayList of all words hidden in the puzzle.
+     @param row:  the starting row to search on.
+     @param column:  the starting column to search on.
      */
     private ArrayList<IWord> searchNorth(ArrayList<String> words, int row, int column)
     {
@@ -191,10 +192,10 @@ public class WordFinder {
 
     /**
      Search for words, South.
-     Returns: ArrayList of all words found.
-     @param words - ArrayList of all words hidden in the puzzle.
-     @param row - the starting row to search on.
-     @param column - the starting column to search on.
+     @return  ArrayList of all words found.
+     @param words:  ArrayList of all words hidden in the puzzle.
+     @param row:  the starting row to search on.
+     @param column:  the starting column to search on.
      */
     private ArrayList<IWord> searchSouth(ArrayList<String> words, int row, int column)
     {
@@ -217,10 +218,10 @@ public class WordFinder {
 
     /**
      Search for words, Northeast.
-     Returns: ArrayList of all words found.
-     @param words - ArrayList of all words hidden in the puzzle.
-     @param row - the starting row to search on.
-     @param column - the starting column to search on.
+     @return  ArrayList of all words found.
+     @param words:  ArrayList of all words hidden in the puzzle.
+     @param row:  the starting row to search on.
+     @param column:  the starting column to search on.
      */
     private ArrayList<IWord> searchNorthEast(ArrayList<String> words, int row, int column)
     {
@@ -243,10 +244,10 @@ public class WordFinder {
 
     /**
      Search for words, Northwest.
-     Returns: ArrayList of all words found.
-     @param words - ArrayList of all words hidden in the puzzle.
-     @param row - the starting row to search on.
-     @param column - the starting column to search on.
+     @return  ArrayList of all words found.
+     @param words:  ArrayList of all words hidden in the puzzle.
+     @param row:  the starting row to search on.
+     @param column:  the starting column to search on.
      */
     private ArrayList<IWord> searchNorthWest(ArrayList<String> words, int row, int column)
     {
@@ -269,10 +270,10 @@ public class WordFinder {
 
     /**
      Search for words, Southeast.
-     Returns: ArrayList of all words found.
-     @param words - ArrayList of all words hidden in the puzzle.
-     @param row - the starting row to search on.
-     @param column - the starting column to search on.
+     @return  ArrayList of all words found.
+     @param words:  ArrayList of all words hidden in the puzzle.
+     @param row:  the starting row to search on.
+     @param column:  the starting column to search on.
      */
     private ArrayList<IWord> searchSouthEast(ArrayList<String> words, int row, int column)
     {
@@ -295,10 +296,10 @@ public class WordFinder {
 
     /**
      Search for words, Southwest.
-     Returns: ArrayList of all words found.
-     @param words - ArrayList of all words hidden in the puzzle.
-     @param row - the starting row to search on.
-     @param column - the starting column to search on.
+     @return  ArrayList of all words found.
+     @param words:  ArrayList of all words hidden in the puzzle.
+     @param row:  the starting row to search on.
+     @param column:  the starting column to search on.
      */
     private ArrayList<IWord> searchSouthWest(ArrayList<String> words, int row, int column)
     {

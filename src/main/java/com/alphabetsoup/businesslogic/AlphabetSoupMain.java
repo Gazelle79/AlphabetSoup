@@ -5,6 +5,10 @@ import com.alphabetsoup.interfaces.IWord;
 import java.io.*;
 import java.util.ArrayList;
 
+/***
+ * @author Frederick Boyd Jr.
+ */
+
 public class AlphabetSoupMain
 {
 
