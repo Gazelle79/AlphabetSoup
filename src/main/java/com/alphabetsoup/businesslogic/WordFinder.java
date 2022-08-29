@@ -5,13 +5,19 @@ import com.alphabetsoup.interfaces.IWord;
 import java.util.ArrayList;
 import java.io.*;
 
+/**
+ * Reads in a crossword puzzle, it's dimensions, and a list of words to find. Returns a list of all words found,
+ * with start & end coordinates.
+ */
 public class WordFinder {
     private String fileNameAndPath = "";
     private int rows = 0;
     private int columns = 0;
     private char grid[][] = null;
 
-
+    /***
+     * Empty constructor.
+     */
     public WordFinder()
     {
 
@@ -19,8 +25,9 @@ public class WordFinder {
 
     /**
      Reads the contents of the puzzle's words, dimensions, and the puzzle itself.
-     @return List of words hidden in the puzzle.
-     @param filenameAndPath: path to a text file containing the puzzle.
+
+     @param filenameAndPath Path to a text file containing the puzzle, puzzle dimensions, and word list.
+     @return ArrayList of words, with start and end coordinates, hidden in the puzzle.
      */
     public ArrayList<String> loadPuzzle(String filenameAndPath) throws IOException
     {
@@ -76,8 +83,10 @@ public class WordFinder {
 
     /**
      Start searching for all words in the puzzle here.
-     @return ArrayList of all words found from searching in all directions.
-     @param words: ArrayList of all words hidden in the puzzle.
+
+     @param words ArrayList of all words hidden in the puzzle.
+     @return ArrayList of all words, with start and end coordinates, found from searching in all directions.
+     @see com.alphabetsoup.interfaces.IWord
      */
     public ArrayList<IWord> searchForWords(ArrayList<String> words)
     {
@@ -114,10 +123,12 @@ public class WordFinder {
 
     /**
      Search for words, East.
-     @return  ArrayList of all words found.
-     @param  words: ArrayList of all words hidden in the puzzle.
-     @param  row: the starting row to search on.
-     @param  column: the starting column to search on.
+
+     @param  words ArrayList of all words hidden in the puzzle.
+     @param  row the starting row to search on.
+     @param  column the starting column to search on.
+     @return  ArrayList of all words found, with start & end coordinates.
+     @see com.alphabetsoup.interfaces.IWord
      */
     private ArrayList<IWord> searchEast(ArrayList<String> words, int row, int column)
     {
@@ -140,10 +151,12 @@ public class WordFinder {
 
     /**
      Search for words, West.
-     @return  ArrayList of all words found.
-     @param words: ArrayList of all words hidden in the puzzle.
-     @param row: the starting row to search on.
-     @param column: the starting column to search on.
+
+     @param words ArrayList of all words hidden in the puzzle.
+     @param row the starting row to search on.
+     @param column the starting column to search on.
+     @return ArrayList of all words found, with start & end coordinates.
+     @see com.alphabetsoup.interfaces.IWord
      */
     private ArrayList<IWord> searchWest(ArrayList<String> words, int row, int column)
     {
@@ -166,10 +179,12 @@ public class WordFinder {
 
     /**
      Search for words, North.
-     @return  ArrayList of all words found.
-     @param words:  ArrayList of all words hidden in the puzzle.
-     @param row:  the starting row to search on.
-     @param column:  the starting column to search on.
+
+     @param words ArrayList of all words hidden in the puzzle.
+     @param row the starting row to search on.
+     @param column the starting column to search on.
+     @return ArrayList of all words found, with start & end coordinates.
+     @see com.alphabetsoup.interfaces.IWord
      */
     private ArrayList<IWord> searchNorth(ArrayList<String> words, int row, int column)
     {
@@ -192,10 +207,12 @@ public class WordFinder {
 
     /**
      Search for words, South.
-     @return  ArrayList of all words found.
-     @param words:  ArrayList of all words hidden in the puzzle.
-     @param row:  the starting row to search on.
-     @param column:  the starting column to search on.
+
+     @param words ArrayList of all words hidden in the puzzle.
+     @param row the starting row to search on.
+     @param column the starting column to search on.
+     @return ArrayList of all words found, with start & end coordinates.
+     @see com.alphabetsoup.interfaces.IWord
      */
     private ArrayList<IWord> searchSouth(ArrayList<String> words, int row, int column)
     {
@@ -218,10 +235,12 @@ public class WordFinder {
 
     /**
      Search for words, Northeast.
-     @return  ArrayList of all words found.
-     @param words:  ArrayList of all words hidden in the puzzle.
-     @param row:  the starting row to search on.
-     @param column:  the starting column to search on.
+
+     @param words ArrayList of all words hidden in the puzzle.
+     @param row the starting row to search on.
+     @param column the starting column to search on.
+     @return ArrayList of all words found, with start & end coordinates.
+     @see com.alphabetsoup.interfaces.IWord
      */
     private ArrayList<IWord> searchNorthEast(ArrayList<String> words, int row, int column)
     {
@@ -244,10 +263,12 @@ public class WordFinder {
 
     /**
      Search for words, Northwest.
-     @return  ArrayList of all words found.
-     @param words:  ArrayList of all words hidden in the puzzle.
-     @param row:  the starting row to search on.
-     @param column:  the starting column to search on.
+
+     @param words ArrayList of all words hidden in the puzzle.
+     @param row the starting row to search on.
+     @param column the starting column to search on.
+     @return ArrayList of all words found, with start & end coordinates.
+     @see com.alphabetsoup.interfaces.IWord
      */
     private ArrayList<IWord> searchNorthWest(ArrayList<String> words, int row, int column)
     {
@@ -270,10 +291,12 @@ public class WordFinder {
 
     /**
      Search for words, Southeast.
-     @return  ArrayList of all words found.
-     @param words:  ArrayList of all words hidden in the puzzle.
-     @param row:  the starting row to search on.
-     @param column:  the starting column to search on.
+
+     @param words ArrayList of all words hidden in the puzzle.
+     @param row the starting row to search on.
+     @param column the starting column to search on.
+     @return ArrayList of all words found, with start & end coordinates.
+     @see com.alphabetsoup.interfaces.IWord
      */
     private ArrayList<IWord> searchSouthEast(ArrayList<String> words, int row, int column)
     {
@@ -296,10 +319,12 @@ public class WordFinder {
 
     /**
      Search for words, Southwest.
-     @return  ArrayList of all words found.
-     @param words:  ArrayList of all words hidden in the puzzle.
-     @param row:  the starting row to search on.
-     @param column:  the starting column to search on.
+
+     @param words ArrayList of all words hidden in the puzzle.
+     @param row the starting row to search on.
+     @param column the starting column to search on.
+     @return ArrayList of all words found, with start & end coordinates.
+     @see com.alphabetsoup.interfaces.IWord
      */
     private ArrayList<IWord> searchSouthWest(ArrayList<String> words, int row, int column)
     {

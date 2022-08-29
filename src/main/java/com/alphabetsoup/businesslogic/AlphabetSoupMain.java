@@ -12,6 +12,15 @@ import java.util.ArrayList;
 public class AlphabetSoupMain
 {
 
+    /**
+     Reads in a crossword puzzle, dimensions of that crossword puzzle, and a list of words to find in that crossword
+     puzzle, from a directory. If a word from the word list if found, it's printed as output, with its' starting &
+     ending crossword puzzle coordinates.
+
+     @param args a filename and path to "WordFinder.txt", where all properly formatted information for WordFinder lives.
+     @return None. text is output to the screen.
+
+     */
     public static void main(String[] args)
     {
         String currentPath = new File("").getAbsolutePath();
